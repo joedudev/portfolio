@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// TOKENS: COLORS
+// Definición de la paleta "Nocturne Neon" y asignación semántica.
+// -----------------------------------------------------------------------------
+
+// 1. Base Palette (Raw Colors)
+$clr-black-deep: #0c0f0f;
+$clr-black-surface: #121414; // Surface principal
+$clr-grey-dark: #1a1c1c;
+$clr-grey-medium: #282a2b;
+$clr-grey-light: #e2e2e2; // On-surface principal
+
+$clr-purple-neon: #9d5cff; // Electric Purple (Brand Core)
+$clr-purple-soft: #d6baff;
+$clr-purple-deep: #420089;
+
+$clr-white: #ffffff;
+$clr-error: #ffb4ab;
+
+// 2. Semantic Surface Colors (El "OS" del portafolio)
+$bg-surface: $clr-black-surface;
+$bg-surface-dim: $clr-black-surface;
+$bg-surface-bright: #37393a;
+$bg-container-low: $clr-grey-dark;
+$bg-container: #1e2020;
+$bg-container-high: $clr-grey-medium;
+
+// 3. Typography & Icons (Contrast)
+$text-primary: $clr-grey-light; // On-surface
+$text-secondary: #cdc2d7; // On-surface-variant
+$text-on-primary: $clr-white;
+$text-inverse: #2f3131; // Inverse-on-surface
+
+// 4. Action & Brand Colors (Interactivity)
+$color-primary: $clr-purple-neon; // El pulso eléctrico
+$color-primary-variant: $clr-purple-soft;
+$color-outline: #968da0;
+$color-divider: #262626; // Divisores quirúrgicos definidos en DESIGN.md
+
+// 5. Special Effects (Neon Glow)
+$neon-glow-purple: rgba(157, 92, 255, 0.4);
+$neon-glow-soft: rgba(157, 92, 255, 0.15);
+$shadow-neon: 0 0 15px $neon-glow-purple;

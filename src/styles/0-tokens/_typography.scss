@@ -1,0 +1,39 @@
+// -----------------------------------------------------------------------------
+// TOKENS: TYPOGRAPHY
+// Definición de fuentes, tamaños y pesos (Escala Nocturne Neon)
+// -----------------------------------------------------------------------------
+
+// 1. Familias de fuentes
+$font-primary:
+	"Inter",
+	system-ui,
+	-apple-system,
+	sans-serif;
+
+// 2. Pesos tipográficos (basados en tu importación de Google Fonts)
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// 3. Escala de tamaños (Criterio: Legibilidad y Jerarquía Quirúrgica)
+$font-size-xs: 0.75rem; // 12px - Overlines / Badges
+$font-size-sm: 0.875rem; // 14px - Texto secundario / Inputs
+$font-size-base: 1rem; // 16px - Body text
+$font-size-md: 1.25rem; // 20px - Subtítulos / H3
+$font-size-lg: 1.5rem; // 24px - H2
+$font-size-xl: 2.5rem; // 40px - H1 (Hero Title)
+$font-size-display: 3rem; // 48px - Títulos de gran impacto
+
+// 4. Altura de línea (Line-height)
+$line-height-tight: 1.2;
+$line-height-base: 1.5;
+$line-height-loose: 1.8;
+
+// 5. Espaciado entre letras (Letter-spacing)
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;
