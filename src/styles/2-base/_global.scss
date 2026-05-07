@@ -1,0 +1,82 @@
+// -----------------------------------------------------------------------------
+// BASE: GLOBAL
+// Aplicación de tokens a elementos raíz y estilos globales del sistema.
+// -----------------------------------------------------------------------------
+@use "../0-tokens" as tokens;
+@use "animations"; // Importamos el archivo hermano
+
+// 1. Configuración de Raíz (HTML)
+html {
+	font-size: 16px; // Base para el cálculo de REMs
+	scroll-behavior: smooth;
+	background-color: tokens.$clr-black-deep; // Evita el "flash" blanco al cargar
+}
+
+// 2. Cuerpo del sitio (The Canvas)
+body {
+	background-color: tokens.$bg-surface;
+	color: tokens.$text-primary;
+	font-family: tokens.$font-primary;
+	font-size: tokens.$font-size-base;
+	line-height: tokens.$line-height-base;
+	min-height: 100vh;
+	overflow-x: hidden; // Previene scroll horizontal accidental
+}
+
+// 3. Jerarquía de Títulos (Headings)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: tokens.$clr-white;
+	font-weight: tokens.$font-weight-bold;
+	line-height: tokens.$line-height-tight;
+	letter-spacing: tokens.$letter-spacing-tight;
+}
+
+h1 {
+	font-size: tokens.$font-size-xl;
+} // 40px según DESIGN.md
+h2 {
+	font-size: tokens.$font-size-lg;
+}
+h3 {
+	font-size: tokens.$font-size-md;
+}
+
+// 4. Selección de Texto (Efecto Neon)
+::selection {
+	background-color: tokens.$color-primary;
+	color: tokens.$clr-white;
+}
+
+// 5. Scrollbar Personalizada (Estética Nocturne)
+// Diseñada para ser minimalista y no romper la densidad funcional.
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: tokens.$bg-surface;
+}
+
+::-webkit-scrollbar-thumb {
+	background: tokens.$color-divider;
+	border-radius: tokens.$radius-full;
+
+	&:hover {
+		background: tokens.$color-primary;
+	}
+}
+
+// 6. Enlaces Globales
+a {
+	@include animations.transition-soft; // Cambiamos @extend por @include
+
+	&:focus-visible {
+		outline: 2px solid tokens.$color-primary;
+		outline-offset: 4px;
+	}
+}

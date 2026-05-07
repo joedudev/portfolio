@@ -1,1 +1,12 @@
+// -----------------------------------------------------------------------------
+// VENDOR: INDEX (BARRIL)
+// Centralización de librerías externas y resets.
+// -----------------------------------------------------------------------------
+
+// 1. Librerías externas (desde node_modules)
+// Nota: Vite entiende estas rutas directamente
+@use "animate.css/animate.min.css";
+@use "aos/dist/aos.css";
+
+// 2. Archivos locales de la carpeta
 @forward "normalize";

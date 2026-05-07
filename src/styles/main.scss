@@ -1,11 +1,18 @@
-// 1. Vendor (Librerías externas desde node_modules)
-@use "animate.css/animate.min.css";
-@use "aos/dist/aos.css";
+// -----------------------------------------------------------------------------
+// MAIN ORCHESTRATOR
+// Usamos "as" para evitar que el número al inicio rompa el identificador.
+// -----------------------------------------------------------------------------
 
-// 2. Tu arquitectura
-@use "0-tokens";
-@use "1-vendor";
-@use "2-base";
-@use "3-atoms";
-@use "4-molecules";
-@use "5-organisms";
+// 1. Vendor (Librerías y Resets)
+@use "1-vendor" as vendor;
+
+// 2. Tokens (Variables)
+@use "0-tokens" as tokens;
+
+// 3. Base (Estilos globales y Animaciones)
+@use "2-base" as base;
+
+// 4. Componentes (Atomic Design)
+@use "3-atoms" as atoms;
+@use "4-molecules" as molecules;
+@use "5-organisms" as organisms;
