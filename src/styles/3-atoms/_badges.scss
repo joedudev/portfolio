@@ -1,0 +1,52 @@
+// -----------------------------------------------------------------------------
+// ATOMS: BADGES (CHIPS)
+// Pequeños componentes informativos para etiquetas, tecnologías o estados.
+// -----------------------------------------------------------------------------
+@use "../0-tokens" as tokens;
+@use "../2-base/animations" as animations;
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	gap: tokens.$space-xxs; // Espacio entre el punto (si existe) y el texto
+	padding: tokens.$space-xxs tokens.$space-sm;
+	background-color: tokens.$bg-container-low; // #1A1A1A según especificación
+	color: tokens.$text-secondary;
+	font-family: tokens.$font-primary;
+	font-size: tokens.$font-size-xs; // 12px para mantener la densidad funcional
+	font-weight: tokens.$font-weight-medium;
+	border-radius: tokens.$radius-base; // Los 8px quirúrgicos del sistema
+	border: 1px solid tokens.$color-divider;
+	white-space: nowrap;
+	@include animations.transition-soft;
+
+	&:hover {
+		background-color: tokens.$bg-container-high;
+		color: tokens.$text-primary;
+		border-color: tokens.$color-outline;
+	}
+
+	// 1. Variante con punto para estados "Active" o "Live"
+	// Basado en el requerimiento: "2px purple dot next to the label"
+	&--active {
+		&::before {
+			content: "";
+			width: 6px;
+			height: 6px;
+			border-radius: tokens.$radius-full;
+			background-color: tokens.$color-primary;
+			box-shadow: 0 0 8px tokens.$neon-glow-purple;
+			display: inline-block;
+			// Animación sutil de pulso para estados en vivo
+			animation: neon-pulse 2s infinite ease-in-out;
+		}
+	}
+
+	// 2. Variante minimalista (sin bordes)
+	&--ghost {
+		border-color: transparent;
+		background-color: transparent;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
