@@ -1,0 +1,11 @@
+// 1. Vendor (Librerías externas desde node_modules)
+@use "animate.css/animate.min.css";
+@use "aos/dist/aos.css";
+
+// 2. Tu arquitectura
+@use "0-tokens";
+@use "1-vendor";
+@use "2-base";
+@use "3-atoms";
+@use "4-molecules";
+@use "5-organisms";
