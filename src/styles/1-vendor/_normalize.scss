@@ -1,0 +1,91 @@
+// -----------------------------------------------------------------------------
+// VENDOR: NORMALIZE / RESET
+// Limpieza de estilos por defecto del navegador para una base quirúrgica.
+// -----------------------------------------------------------------------------
+
+// 1. Box sizing global (incluye paddings y borders en el ancho total)
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+// 2. Reset de márgenes y accesibilidad de altura
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+// 3. Configuración del Body (El lienzo de Nocturne Neon)
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// 4. Listas (Quitamos los bullets por defecto para Atomic Design)
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+// 5. Elementos Multimedia (Evita desbordamientos)
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+// 6. Tipografía heredada para formularios
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+// 7. Botones (Elimina el estilo "sistema" para crear los tuyos propios)
+button {
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+// 8. Enlaces (Limpieza inicial)
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+// 9. Eliminación de animaciones para usuarios que prefieren "Reduced Motion"
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
