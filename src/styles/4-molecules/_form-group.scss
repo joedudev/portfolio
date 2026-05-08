@@ -1,0 +1,33 @@
+// -----------------------------------------------------------------------------
+// MOLECULES: FORM GROUP
+// Unión de Label + Input/Textarea para campos de formulario funcionales.
+// -----------------------------------------------------------------------------
+@use "../0-tokens" as tokens;
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: tokens.$space-xs; // Espacio de 8px entre label e input
+	width: 100%;
+	margin-bottom: tokens.$space-lg; // Espacio entre grupos de formulario
+
+	// 1. Alineación de mensajes de ayuda o error (si se añaden después)
+	&__helper {
+		margin-top: tokens.$space-xxs;
+		font-size: tokens.$font-size-xs;
+		color: tokens.$text-secondary;
+		opacity: 0.8;
+	}
+
+	// 2. Estado de error a nivel de grupo
+	&--error {
+		.label {
+			color: tokens.$clr-error;
+		}
+
+		.input,
+		.textarea {
+			border-color: tokens.$clr-error;
+		}
+	}
+}

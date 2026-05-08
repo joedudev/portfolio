@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// MOLECULES: LANGUAGE SWITCHER
+// Selector de idioma flotante con estética de "Configuración de Sistema".
+// -----------------------------------------------------------------------------
+@use "../0-tokens" as tokens;
+@use "../2-base/animations" as animations;
+
+.lang-switcher {
+	position: fixed;
+	bottom: tokens.$space-lg;
+	right: tokens.$space-lg;
+	z-index: 100; // Por encima de todo
+	display: flex;
+	flex-direction: column;
+	gap: tokens.$space-xxs;
+	background-color: rgba(tokens.$bg-container-low, 0.8);
+	backdrop-filter: blur(8px);
+	padding: tokens.$space-xxs;
+	border-radius: tokens.$radius-base;
+	border: 1px solid tokens.$color-divider;
+	@include animations.transition-soft;
+
+	&:hover {
+		border-color: tokens.$color-outline;
+		box-shadow: 0 0 15px tokens.$neon-glow-soft;
+	}
+
+	// 1. Botón individual de idioma
+	&__btn {
+		padding: tokens.$space-xs tokens.$space-sm;
+		font-size: tokens.$font-size-xs;
+		font-weight: tokens.$font-weight-bold;
+		color: tokens.$text-secondary;
+		text-transform: uppercase;
+		border-radius: calc(tokens.$radius-base - 2px);
+		@include animations.transition-soft;
+
+		&:hover {
+			color: tokens.$text-primary;
+			background-color: rgba(255, 255, 255, 0.05);
+		}
+
+		// 2. Estado Activo (Idioma seleccionado)
+		&--active {
+			color: tokens.$clr-white;
+			background-color: tokens.$color-primary;
+			box-shadow: 0 0 10px tokens.$neon-glow-purple;
+
+			&:hover {
+				background-color: tokens.$color-primary; // Mantiene el color
+			}
+		}
+	}
+}
+
+// 3. Ajuste para móviles (más compacto)
+@media (max-width: 768px) {
+	.lang-switcher {
+		bottom: tokens.$space-md;
+		right: tokens.$space-md;
+		flex-direction: row; // En móvil mejor horizontal
+	}
+}
