@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+// ATOMS: INPUTS
+// Estilos para campos de texto, textareas y selects (Nocturne Neon Style).
+// -----------------------------------------------------------------------------
+@use "../0-tokens" as tokens;
+@use "../2-base/animations" as animations;
+
+// 1. Estilo base para elementos de formulario
+.input,
+.textarea {
+	width: 100%;
+	padding: tokens.$space-md;
+	background-color: tokens.$bg-container-low; // #1A1A1A
+	color: tokens.$text-primary;
+	font-family: tokens.$font-primary;
+	font-size: tokens.$font-size-sm;
+	border-radius: tokens.$radius-base; // 8px estándar
+	border: 1px solid tokens.$color-divider; // #262626
+	@include animations.transition-soft;
+	outline: none;
+
+	&::placeholder {
+		color: tokens.$text-secondary;
+		opacity: 0.6;
+	}
+
+	// 2. Estado de Enfoque (Focus)
+	// El borde transiciona a Electric Purple solo al ganar el foco.
+	&:focus {
+		border-color: tokens.$color-primary;
+		background-color: tokens.$bg-container; // Ligero aclarado
+		box-shadow: 0 0 0 1px tokens.$neon-glow-soft;
+	}
+
+	// 3. Estado de Error
+	&--error {
+		border-color: tokens.$clr-error;
+
+		&:focus {
+			box-shadow: 0 0 0 1px rgba(255, 180, 171, 0.2);
+		}
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		background-color: tokens.$clr-black-deep;
+	}
+}
+
+// 4. Ajustes específicos para Textarea
+.textarea {
+	min-height: 120px;
+	resize: vertical;
+}
+
+// 5. Estilo para etiquetas (Labels)
+.label {
+	display: block;
+	margin-bottom: tokens.$space-xs;
+	font-size: tokens.$font-size-xs;
+	font-weight: tokens.$font-weight-medium;
+	color: tokens.$text-secondary;
+	text-transform: uppercase;
+	letter-spacing: tokens.$letter-spacing-wide;
+}
