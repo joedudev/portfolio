@@ -1,0 +1,75 @@
+// -----------------------------------------------------------------------------
+// ATOMS: BUTTONS
+// Botones principales del sistema con el estándar geométrico ROUND_EIGHT.
+// -----------------------------------------------------------------------------
+@use "../0-tokens" as tokens;
+@use "../2-base/animations" as animations;
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: tokens.$space-xs;
+	padding: tokens.$space-sm tokens.$space-xl;
+	font-family: tokens.$font-primary;
+	font-size: tokens.$font-size-sm;
+	font-weight: tokens.$font-weight-semibold;
+	border-radius: tokens.$radius-base; // 8px estándar del sistema
+	cursor: pointer;
+	border: 1px solid transparent;
+	@include animations.transition-soft;
+	user-select: none;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		filter: grayscale(1);
+	}
+
+	&:focus-visible {
+		outline: 2px solid tokens.$color-primary;
+		outline-offset: 4px;
+	}
+
+	// 1. Primary: Solid #9D5CFF with white text
+	&--primary {
+		background-color: tokens.$color-primary;
+		color: tokens.$clr-white;
+		box-shadow: 0 4px 14px 0 tokens.$neon-glow-soft;
+
+		&:hover:not(:disabled) {
+			background-color: tokens.$clr-purple-soft;
+			box-shadow: 0 6px 20px 0 tokens.$neon-glow-purple;
+			transform: translateY(-1px);
+		}
+
+		&:active {
+			transform: translateY(0);
+		}
+	}
+
+	// 2. Secondary: Ghost style with #262626 border
+	&--secondary {
+		background-color: transparent;
+		border-color: tokens.$color-divider;
+		color: tokens.$text-primary;
+
+		&:hover:not(:disabled) {
+			border-color: tokens.$clr-white;
+			background-color: rgba(255, 255, 255, 0.05);
+		}
+	}
+
+	// 3. Tertiary: Text-only with "Electric Purple" on hover
+	&--tertiary {
+		background-color: transparent;
+		color: tokens.$text-secondary;
+		padding-left: tokens.$space-xs;
+		padding-right: tokens.$space-xs;
+
+		&:hover:not(:disabled) {
+			color: tokens.$color-primary;
+			background-color: tokens.$neon-glow-soft;
+		}
+	}
+}
